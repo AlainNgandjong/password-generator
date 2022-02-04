@@ -5,8 +5,8 @@
 
     <form method="get" action="{{ path('app_generate_password') }}">
         <div>
-            <label for="lenght">Lenght</label>
-            <select id="lenght" name="lenght">
+            <label for="length">Length</label>
+            <select id="length" name="length">
                 {% for i in range(8,30)  %}
                     <option value="{{ i }}"
                             {{ i == 12 ? 'selected' }}
@@ -18,8 +18,8 @@
         </div>
 
         <div>
-            <label for="upercase_letters">Uppercase Letters</label>
-            <input type="checkbox" id="upercase_letters" name="upercase_letters">
+            <label for="uppercase_letters">Uppercase Letters</label>
+            <input type="checkbox" id="uppercase_letters" name="uppercase_letters">
         </div>
         <div>
             <label for="digits">Digits </label>
@@ -38,7 +38,7 @@
     <footer>
         <p>
             Build with &hearts; by
-            <a href="https://parloscode.com"> Parlons code.</a>
+            <a href="https://parloscode.com"> MyCode.</a>
         </p>
     </footer>
 {% endblock %}
