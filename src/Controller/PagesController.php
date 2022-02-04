@@ -43,8 +43,8 @@ class PagesController extends AbstractController
 
         $password = '';
 
-        for($i=0; $i < $length; $i++){
-            $password .= $characters[array_rand($characters)];
+        for ($i=0; $i < $length; $i++) {
+            $password .= $characters[random_int(0, count($characters) - 1)];
 //            $password = $password.$characters[mt_rand(0, count($characters) - 1)];
 //            $password .= $characters[mt_rand(0, count($characters) - 1)];
 
