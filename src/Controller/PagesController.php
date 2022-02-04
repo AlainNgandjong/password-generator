@@ -40,15 +40,16 @@ class PagesController extends AbstractController
         }
 
 //        shuffle($characters); // mix the array list if needed
+
         $password = '';
 
-        for ($i=0; $i < $length; $i++){
-            $password = $password.$characters[mt_rand(0, count($characters) - 1)];
-//            $password = $password.array_rand($characters, $length);
+        for($i=0; $i < $length; $i++){
+            $password .= $characters[array_rand($characters)];
+//            $password = $password.$characters[mt_rand(0, count($characters) - 1)];
+//            $password .= $characters[mt_rand(0, count($characters) - 1)];
+
         }
 
-        return $this->render('pages/password.html.twig', [
-            'password' => $password
-        ]);
+        return $this->render('pages/password.html.twig',compact('password'));
     }
 }
