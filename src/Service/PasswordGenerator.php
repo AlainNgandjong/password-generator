@@ -16,7 +16,7 @@ class PasswordGenerator
             '?', '@', '[', '\\', ']', '^', '_',
             '{', '|', '}', '~'];
 
-        $characters = $lowercaseLettersAlphabet;
+        $characters = [$lowercaseLettersAlphabet];
 
         // Add random lowercase letter
         $password = [$this->pickRandomItemFromAlphabet($lowercaseLettersAlphabet)];
@@ -28,10 +28,11 @@ class PasswordGenerator
         ];
         foreach ($mapping as [$constraintEnabled , $constraintAlphabet]){
             if($constraintEnabled){
-                $characters = [...$characters , ...$constraintAlphabet]; // or array_merge($characters , $constraintAlphabet)
+                $characters[] = $constraintAlphabet; // or array_merge($characters , $constraintAlphabet)
                 $password[] = $this->pickRandomItemFromAlphabet($constraintAlphabet);
             }
         }
+        $characters = array_merge(...$characters);
 
         $numberOfCharacterRemaining = $length - count($password);
 
