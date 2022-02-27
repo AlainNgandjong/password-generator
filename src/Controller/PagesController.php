@@ -20,11 +20,10 @@ class PagesController extends AbstractController
     }
 
     #[Route('/', name: 'app_home')]
-    public function home(Request $request): Response
+    public function home(): Response
     {
-//
         return $this->render('pages/home.html.twig', [
-            'password_default_length' => $request->getSession()->get('app.length',$this->parameterBag->get('app.password_default_length')),
+            'password_default_length' => $this->parameterBag->get('app.password_default_length'),
             'password_min_length' => $this->parameterBag->get('app.password_min_length'),
             'password_max_length' => $this->parameterBag->get('app.password_max_length'),
         ]);
@@ -53,12 +52,6 @@ class PagesController extends AbstractController
             wSpecChar: $specialCharacters
         );
 
-        $session = $request->getSession();
-
-        $session->set('app.length', $length);
-        $session->set('app.uppercaseLetters', $uppercaseLetters);
-        $session->set('app.digits', $digits);
-        $session->set('app.specialCharacters', $specialCharacters);
 
         return $this->render('pages/password.html.twig',compact('password'));
     }

@@ -3,13 +3,23 @@
 {% block body %}
     <h1>Password Generator</h1>
 
-    <form id="js-password-generator-form" method="get" action="{{ path('app_generate_password') }}">
+    <form
+            id="js-password-generator-form"
+            method="get"
+            action="{{ path('app_generate_password') }}"
+            x-data = "{
+                length: $persist({{ password_default_length }}),
+                uppercaseLetters: $persist(false),
+                digits: $persist(false),
+                specialCharacters: $persist(false)
+            }"
+    >
         <div>
             <label for="length">Length</label>
-            <select id="length" name="length">
+            <select id="length" name="length" x-model="length">
                 {% for i in password_min_length..password_max_length  %}
                     <option value="{{ i }}"
-                            {{ i == password_default_length ? 'selected' }}
+{#                            {{ i == password_default_length ? 'selected' }}#}
                     >
                         {{ i }}
                     </option>
@@ -25,7 +35,8 @@
                     type="checkbox"
                     id="uppercase-letters"
                     name="uppercase_letters"
-                    {{ app.session.get('app.uppercaseLetters') ? 'checked' }}
+                    x-model = "uppercaseLetters"
+
             >
         </div>
         <div>
@@ -34,7 +45,8 @@
                     type="checkbox"
                     id="digits"
                     name="digits"
-                    {{ app.session.get('app.digits') ? 'checked' }}
+                    x-model = "digits"
+
             >
         </div>
         <div>
@@ -43,7 +55,8 @@
                     type="checkbox"
                     id="special-characters"
                     name="special_characters"
-                    {{ app.session.get('app.specialCharacters') ? 'checked' }}
+                    x-model = "specialCharacters"
+
             >
         </div>
 
@@ -61,5 +74,6 @@
 {% endblock %}
 
 {% block javascripts %}
-{#    <script src="{{ asset('js/app.js') }}" defer></script>#}
+    <script defer src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 {% endblock %}
