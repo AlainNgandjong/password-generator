@@ -10,16 +10,16 @@
         {% endblock %}
 
         {% block javascripts %}
-            <style>
-                [x-cloak] {display: none !important;}
-            </style>
 
 {#            {{ encore_entry_script_tags('app') }}#}
         {% endblock %}
     </head>
     <body>
         <main role="main">
-            {% block body %}{% endblock %}
+            {% block body %}
+
+            {% endblock %}
+
         </main>
     </body>
 </html>
