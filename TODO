@@ -1,4 +1,4 @@
-1. Homepage should work: Password Generator
+1. Homepage should work: Password Generator ✔
 2. Generated password page should work: Generated Password
 3. test password generator form
 4. test what happens if length < 8 and > 60
