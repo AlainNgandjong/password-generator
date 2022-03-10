@@ -1,0 +1,12 @@
+1. Homepage should work: Password Generator
+2. Generated password page should work: Generated Password
+3. test password generator form
+4. test what happens if length < 8 and > 60
+5. First time homepage no cookies
+6. Cookies set when submitting form for the first time
+7. Form is pre-populated with cookies values
+8. CTest password validity based on constraints
+
+Unit tests (individual units)
+Integration tests
+Application tests (workflow request-response)
