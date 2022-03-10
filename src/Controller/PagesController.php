@@ -21,7 +21,7 @@ class PagesController extends AbstractController
         $this->parameterBag = $parameterBag;
     }
 
-    #[Route('/', name: 'app_home')]
+    #[Route('/', name: 'app_home', methods: ['GET'])]
     public function home(): Response
     {
         return $this->render('pages/home.html.twig', [
@@ -31,7 +31,7 @@ class PagesController extends AbstractController
         ]);
     }
 
-    #[Route('/generate-password', name: 'app_generate_password')]
+    #[Route('/generate-password', name: 'app_generate_password' , methods: ['GET'])]
     public function generatePassword(Request $request, PasswordGenerator $passwordGenerator): Response
     {
 
